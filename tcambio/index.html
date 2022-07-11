@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            mobile: "320px",
+            tablet: "640px",
+            // => @media (min-width: 640px) { ... }
+
+            laptop: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            desktop: "1280px",
+            // => @media (min-width: 1280px) { ... }
+          },
+
+          fontFamily: {
+            Montserrat: ["Montserrat"],
+            Roboto: ["Roboto"],
+            OpenSans: ["Open+Sans"],
+          },
+          fontSize: {
+            size48: [
+              "48px",
+              {
+                lineHeight: "56px",
+              },
+            ],
+            size32: [
+              "32px",
+              {
+                lineHeight: "37.5px",
+              },
+            ],
+            size40: [
+              "40px",
+              {
+                lineHeight: "46.88px",
+              },
+            ],
+            size24: ["24px"],
+            size22: ["22px"],
+            size18: ["18px"],
+            size16: [
+              "16px",
+              {
+                lineHeight: "28px",
+              },
+            ],
+            size14: ["14px"],
+            size12: ["12px"],
+          },
+          extend: {
+            colors: {
+              white: "#ffffff",
+              black: "#000000",
+              ash: "#333333",
+              gray69: "#696969",
+              gray4A: "#4A4A4A",
+              gray33: "#333333",
+              main: "#2DE38E",
+              mainbg: "#E1F5EC",
+              secondary: "#2E3331",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap");
+    </style>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      @layer components {
+        .container {
+          @apply max-w-full desktop:max-w-[1336px] px-[10px] desktop:px-[107px] py-[16px] mx-auto;
+        }
+        .gridTwo {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .gridThree {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .btn {
+          @apply px-[1.5rem] py-[1rem] rounded-lg border border-gray33 text-size16 leading-none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container flex justify-between items-center hidden laptop:flex scale-[90%] desktop:scale-100"
+    >
+      <div class="flex gap-[40px] text-secondary font-openSans text-size16">
+        <div><img src="assets/logo.svg" alt="" /></div>
+        <div>Personal</div>
+        <div>Negocio</div>
+        <div>Empresa</div>
+      </div>
+      <div class="flex gap-[1rem]">
+        <button class="btn">Iniciar Sesión</button>
+        <button class="btn bg-gray33 text-white">Regístrate</button>
+      </div>
+    </div>
+    <div x-data="{ open: false }" class="block laptop:hidden">
+      <div class="flex justify-between items-center py-[20px] px-[30px]">
+        <div><img class="scale-75" src="assets/logo.svg" alt="" /></div>
+        <div x-on:click="open = ! open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        x-show="open"
+        class="absolute right-5 top-10 bg-white z-10 p-4 shadow-md rounded-lg m-2"
+      >
+        <div
+          class="flex flex-col gap-[10px] text-secondary font-openSans text-size16"
+        >
+          <div>Personal</div>
+          <div>Negocio</div>
+          <div>Empresa</div>
+          <button class="btn leading-none py-2">Iniciar Sesión</button>
+          <button class="btn bg-gray33 text-white py-2">Regístrate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-b border-gray33/20"></div>
+    <div
+      class="container flex flex-col tablet:flex-row justify-between items-center py-[10px] desktop:py-[100px] gap-[10px]"
+    >
+      <div class="">
+        <div class="scale-75 desktop:scale-100">
+          <h1
+            class="font-Roboto text-size48 font-bold max-w-[18ch] text-secondary"
+          >
+            Cambiamos la manera de enviar tu dinero al extranjero.
+          </h1>
+          <p class="max-w-[50ch] pt-[12px]">
+            Más de 4 millones de personas eligen Tcambio para mover su dinero
+            entre países obteniendo el Tipo de cambio real.
+          </p>
+          <div class="pt-[24px]"><img src="assets/apps.png" alt="" /></div>
+        </div>
+      </div>
+      <div class="scale-75 desktop:scale-100">
+        <div class="">
+          <img src="assets/Converter.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-[#F0F5F3] py-[20px]">
+      <div
+        class="container flex flex-wrap gap-y-[20px] justify-between px-[50px] laptop:px-[200px]"
+      >
+        <img src="assets/Bloomberg.png" alt="" />
+        <img src="assets/Forbes.png" alt="" />
+        <img src="assets/TC.png" alt="" />
+        <img src="assets/USATODAY.png" alt="" />
+        <img src="assets/WSJ.png" alt="" />
+      </div>
+    </div>
+    <div class="container px-0 py-0 gridTwo">
+      <div
+        class="grid items-center justify-items-center scale-75 desktop:scale-100"
+      >
+        <div class="flex flex-col gap-[20px]">
+          <h2 class="text-size40 font-bold font-Roboto text-secondary">
+            Fácil y sin complicaciones
+          </h2>
+          <div class="text-size16 font-openSans">
+            <div class="flex gap-[10px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 c"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <p class="max-w-[49ch]">
+                Envíe dinero al instante obteniendo el Tipo de cambio real a más
+                de 30 países en el mundo.
+              </p>
+            </div>
+            <div class="flex gap-[10px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 pt-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <p class="max-w-[49ch]">
+                Hasta 8 veces más baratos que los métodos tradicionales
+              </p>
+            </div>
+            <div class="flex gap-[10px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 pt-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <p class="max-w-[49ch]">
+                Dile adiós a los cargos ocultos. Siempre sabes exactamente lo
+                que envías y reciben.
+              </p>
+            </div>
+          </div>
+          <div>
+            <button
+              class="btn flex gap-[10px] px-[30px] py-[10px] items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7 text-secondary"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span class="text-size16 font-openSans leading-none"
+                >Mira cómo Funciona</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="aspect-[68/68] laptop:aspect-[68/50] bg-main bg-cover bg-[url('assets/image1.png')]"
+      ></div>
+    </div>
+    <div class="container px-0 py-0 gridTwo">
+      <div
+        class="order-2 grid items-center justify-items-center justify-self-center scale-75 desktop:scale-100"
+      >
+        <div class="flex flex-col gap-[20px]">
+          <h2 class="text-size40 font-bold font-Roboto text-secondary">
+            Fácil y sin complicaciones
+          </h2>
+          <p class="text-size16 font-openSans max-w-[40ch] text-justify">
+            La seguridad es nuestra prioridad número uno. Utilizamos procesos
+            seguros y tecnología de vanguardia para proteger tu dinero y datos
+            personales. Además, estamos regulados por la FinCEN se aseguran de
+            que actuemos de manera honesta y transparente.
+          </p>
+
+          <div>
+            <button
+              class="btn flex gap-[10px] px-[30px] py-[10px] items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="order-2 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+              <span class="order-1 text-size16 font-openSans leading-none"
+                >Conoce más</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="order-2 tablet:order-1 aspect-[68/68] laptop:aspect-[68/50] bg-main bg-cover bg-[url('assets/image2.png')]"
+      ></div>
+    </div>
+    <div class="bg-main">
+      <div class="container py-[50px] laptop:py-[100px]">
+        <h2
+          class="text-size40 font-bold text-secondary text-center scale-75 desktop:scale-100"
+        >
+          Más de 4 millones de personas en todo el mundo usan Tcambio
+        </h2>
+        <img class="mx-auto py-[50px]" src="assets/atlas.png" alt="" />
+        <div>
+          <p class="text-center text-size14 font-openSans">
+            Envíos al instante a más de 30 países. Siempre con la comisión más
+            baja y transparente.
+          </p>
+          <div
+            class="gridThree max-w-[600px] mx-auto gap-x-[20px] gap-y-[10px] py-[20px] px-[10px]"
+          >
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+            <div class="bg-black/10 rounded-lg p-2">Estados Unidos</div>
+          </div>
+          <div class="flex">
+            <button class="btn mx-auto leading-none">
+              Ver países disponibles
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-[50px] laptop:py-[100px]">
+      <h2
+        class="text-center text-size40 font-Roboto font-bold scale-75 desktop:scale-100"
+      >
+        Nuestros clientes opinan que somos excelentes
+      </h2>
+    </div>
+    <div class="bg-[#F0F5F3]">
+      <div
+        class="flex flex-col tablet:flex-row place-content-center items-center scale-75 origin-center tablet:origin-bottom desktop:scale-100"
+      >
+        <div class="">
+          <h3 class="text-size32 font-bold font-Roboto max-w-[22ch]">
+            Enviar dinero al extranjero nunca había sido tan fácil.
+          </h3>
+          <p class="text-16 font-openSans max-w-[45ch] pt-[10px] pb-[15px]">
+            Descargue hoy Tcambio App para una mejor experiencia. Disponible
+            para iOS y Android.
+          </p>
+          <img src="assets/apps.png" alt="" />
+        </div>
+        <div class="hidden tablet:block">
+          <img src="assets/mobile.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div
+      class="container py-[50px] laptop:py-[100px] grid gap-[35px] px-[10vw]"
+    >
+      <div class="flex flex-wrap justify-between">
+        <div class="flex flex-col gap-[6px] text-size14 font-openSans">
+          <h4 class="text-size18 font-openSans font-semibold text-secondary">
+            Empresa
+          </h4>
+          <div>Sobre nosotros</div>
+          <div>Blog y noticias</div>
+          <div>Cultura</div>
+          <div>Empleos</div>
+          <div>Contacto</div>
+        </div>
+        <div class="flex flex-col gap-[6px] text-size14 font-openSans">
+          <h4 class="text-size18 font-openSans font-semibold text-secondary">
+            Empresa
+          </h4>
+          <div>Sobre nosotros</div>
+          <div>Blog y noticias</div>
+          <div>Cultura</div>
+          <div>Empleos</div>
+          <div>Contacto</div>
+        </div>
+        <div class="flex flex-col gap-[6px] text-size14 font-openSans">
+          <h4 class="text-size18 font-openSans font-semibold text-secondary">
+            Empresa
+          </h4>
+          <div>Sobre nosotros</div>
+          <div>Blog y noticias</div>
+          <div>Cultura</div>
+          <div>Empleos</div>
+          <div>Contacto</div>
+        </div>
+
+        <div class="flex flex-col gap-[6px] text-size14 font-openSans">
+          <h4 class="text-size18 font-openSans font-semibold text-secondary">
+            Empresa
+          </h4>
+          <div>Sobre nosotros</div>
+          <div>Blog y noticias</div>
+          <div>Cultura</div>
+          <div>Empleos</div>
+          <div>Contacto</div>
+        </div>
+        <div class="flex flex-col gap-[6px] text-size14 font-openSans">
+          <h4 class="text-size18 font-openSans font-semibold text-secondary">
+            Empresa
+          </h4>
+          <div>Sobre nosotros</div>
+          <div>Blog y noticias</div>
+          <div>Cultura</div>
+          <div>Empleos</div>
+          <div>Contacto</div>
+        </div>
+      </div>
+      <div class="border-b"></div>
+      <div class="flex justify-between items-center">
+        <div>Colombia</div>
+        <img class="scale-75 laptop:scale-100" src="assets/apps.png" alt="" />
+      </div>
+      <div>
+        <p
+          class="text-center text-size14 font-openSans max-w-[100ch] mx-auto pb-[10px]"
+        >
+          © 2019 - 2021 Tcambio LLC. Todos los derechos reservados
+        </p>
+        <p
+          class="text-center text-justify text-size14 font-openSans max-w-[100ch] mx-auto"
+        >
+          Tcambio LLC es una empresa de tecnología financiera incorporada en
+          Delaware bajo número de registro DE 004569987 regulada por la
+          Financial Crimes Enforcement Network (FinCEN) del Departamento del
+          Tesoro de Estados Unidos. Tcambio es una marca registrada en Estados
+          Unidos y la Unión Europea solo para el uso de los servicios de
+          Tcambio.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
