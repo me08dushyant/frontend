@@ -118,7 +118,11 @@
         <button class="btn bg-gray33 text-white">Regístrate</button>
       </div>
     </div>
-    <div x-data="{ open: false }" class="block laptop:hidden">
+    <div
+      x-data="{ open: false }"
+      @click.away="open = false"
+      class="block laptop:hidden"
+    >
       <div class="flex justify-between items-center py-[20px] px-[30px]">
         <div><img class="scale-75" src="assets/logo.svg" alt="" /></div>
         <div x-on:click="open = ! open">
@@ -366,6 +370,72 @@
       >
         Nuestros clientes opinan que somos excelentes
       </h2>
+      <div class="gridTwo mx-auto py-[50px] gap-[30px]">
+        <div
+          class="shadow-[0px_5px_15px_-5px_rgba(0,0,0,0.2)] p-5 rounded-lg border border-black/03 grid gap-[30px] text-gray33 font-openSans"
+        >
+          <div class="flex gap-2">
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+          </div>
+          <p>
+            La utilizo con frecuencia para envíar dinero a mi país mes a mes. La
+            recomiendo al 100%
+          </p>
+          <div class="flex items-center gap-5">
+            <span><img src="assets/profile.png" alt="" /></span>
+            <p>Laura Martínez</p>
+          </div>
+        </div>
+        <div
+          class="shadow-[0px_5px_15px_-5px_rgba(0,0,0,0.2)] p-5 rounded-lg border border-black/03 grid gap-[30px] text-gray33 font-openSans"
+        >
+          <div class="flex gap-2">
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+          </div>
+          <p>
+            La utilizo con frecuencia para envíar dinero a mi país mes a mes. La
+            recomiendo al 100%
+          </p>
+          <div class="flex items-center gap-5">
+            <span><img src="assets/profile.png" alt="" /></span>
+            <p>Laura Martínez</p>
+          </div>
+        </div>
+        <div
+          class="shadow-[0px_5px_15px_-5px_rgba(0,0,0,0.2)] p-5 rounded-lg border border-black/03 grid gap-[30px] text-gray33 font-openSans"
+        >
+          <div class="flex gap-2">
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+            <img src="assets/star.png" alt="" />
+          </div>
+          <p>
+            La utilizo con frecuencia para envíar dinero a mi país mes a mes. La
+            recomiendo al 100%
+          </p>
+          <div class="flex items-center gap-5">
+            <span><img src="assets/profile.png" alt="" /></span>
+            <p>Laura Martínez</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-center text-size16">
+          No solo creas lo que decimos nosotros. Valoración de 3.9 sobre 5 en
+          base a 17.936 opiniones.
+        </p>
+        <img class="mx-auto" src="assets/trustpilot.png" alt="" />
+      </div>
     </div>
     <div class="bg-[#F0F5F3]">
       <div
