@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            mobile: "320px",
+            tablet: "640px",
+            // => @media (min-width: 640px) { ... }
+
+            laptop: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            desktop: "1280px",
+            // => @media (min-width: 1280px) { ... }
+          },
+
+          fontFamily: {
+            Montserrat: ["Montserrat"],
+            Inter: ["Inter"],
+            Poppins: ["Poppins"],
+          },
+          fontSize: {
+            xs: ".75rem",
+            sm: ".875rem",
+            tiny: ".875rem",
+            base: "1rem",
+            lg: "1.125rem",
+            xl: "1.25rem",
+            "2xl": "1.5rem",
+            "3xl": "1.875rem",
+            "4xl": "2.25rem",
+            "5xl": "3rem",
+            "6xl": "4rem",
+            "7xl": "5rem",
+          },
+          extend: {
+            colors: {
+              white: "#ffffff",
+              black: "#000000",
+              ash: "#333333",
+              gray69: "#696969",
+              gray4A: "#4A4A4A",
+              gray33: "#333333",
+              main: "#2DE38E",
+              mainbg: "#E1F5EC",
+              secondary: "#2E3331",
+              blue: "#4368C7",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;800;900&display=swap");
+    </style>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      @layer components {
+        body {
+          font-size: clamp(5px, 1vw, 10px);
+        }
+        .container {
+          @apply max-w-full desktop:max-w-[1440px] mx-auto;
+          padding-inline: clamp(10px, 2vw, 80px);
+        }
+        .gridTwo {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .gridThree {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .btn {
+          @apply px-[1.5rem] py-[1rem] rounded-lg border border-gray33 text-size16 leading-none;
+        }
+        h1 {
+          @apply font-bold  text-center leading-[1.2em] mx-auto;
+        }
+        .box {
+          padding-block: clamp(40px, 5vw, 80px);
+        }
+        .gridSmart {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-[1em] visible tablet:hidden">
+      <div class="flex items-center justify-between">
+        <div class="">
+          <img class="scale-75 origin-left" src="assets/logo.svg" alt="logo" />
+        </div>
+        <div x-data="{ open: false }" @click.away="open = false">
+          <div x-on:click="open = ! open">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </div>
+          <nav
+            x-show="open"
+            class="absolute block right-2 bg-white shadow flex flex-col gap-3 p-4 justify-between font-inter font-bold text-[14px]"
+          >
+            <a href="#"> Buy / Sell </a>
+            <a href="#"> Grow </a>
+            <a href="#">Markets </a>
+            <a href="#"> Business </a>
+            <a href="#"> Support </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="container py-[1em] hidden tablet:block">
+      <div class="flex items-center justify-between">
+        <div class="w-25 tablet:w-auto">
+          <img class="" src="assets/logo.svg" alt="logo" />
+        </div>
+
+        <nav
+          class="min-w-[30vw] max-w-[30vw] w-[800%] flex justify-between font-inter font-bold text-[2em] tablet:text-[1.5em]"
+        >
+          <a href="#"> Buy / Sell </a>
+          <a href="#"> Grow </a>
+          <a href="#">Markets </a>
+          <a href="#"> Business </a>
+          <a href="#"> Support </a>
+        </nav>
+        <div
+          class="flex gap-5 font-inter font-semibold text-[14px] items-center"
+        >
+          <button>Sign In</button>
+          <button class="bg-blue p-2 px-300 rounded-lg text-white">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container py-[10em]">
+      <h1 class="text-[5.6em] mx-[10vw]">
+        Join the Next Crypto Revolution in the African Market
+      </h1>
+      <div
+        class="flex gap-10 justify-center font-inter font-bold py-5 text-[2em] tablet:text-[1.5em]"
+      >
+        <span>Wallets</span>
+        <span>Wallets</span>
+        <span>Wallets</span>
+      </div>
+
+      <button
+        class="block mx-auto bg-blue py-3 px-14 leading-none text-white rounded-lg shadow-black/20 text-[1rem]"
+      >
+        Create an Account
+      </button>
+    </div>
+    <div class="container">
+      <div
+        class="aspect-video bg-blue mx-[10vw] rounded-[3em] flex items-center justify-center bg-cover bg-[url(assets/img1.jpg)]"
+      >
+        <div class="max-w-[15em]"><img src="assets/play-btn.svg" alt="" /></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="py-[5em]">
+        <h2
+          class="font-poppins text-[4.0em] text-center font-bold leading-none mx-[15vw]"
+        >
+          What we bring to the Crypto Market
+        </h2>
+        <p
+          class="mx-[18vw] text-center text-[2em] laptop:text-[1.4em] py-[1em]"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit
+          vestibulum magna in urna pellentesque amet. Pellentesque fermentum
+          fermentum
+        </p>
+      </div>
+      <div
+        class="grid grid-cols-2 tablet:grid-cols-3 gap-[1.5em] mx-[6vw] pb-[5em]"
+      >
+        <div
+          class="aspect-[3.8/3.5] bg-blue/10 rounded-[2em] flex flex-col items-center justify-between p-[1em] laptop:p-[2em]"
+        >
+          <div class="flex flex-col items-center gap-[.5em] laptop:gap-[2em]">
+            <div class="w-[8em]">
+              <img src="assets/icon1.svg" alt="icon" />
+            </div>
+            <h3 class="text-[3em] font-poppins font-bold">Trade Desk</h3>
+            <p class="text-center text-[1.4em]">
+              Invest in crypto anytime, anywhere with our safe, secure, and easy
+              to use online platform
+            </p>
+          </div>
+          <button class="flex items-center gap-2 py-[2em]">
+            <span class="font-inter font-bold text-[1.6em] text-blue"
+              >Get Started</span
+            >
+            <img class="w-[2em]" src="assets/arrow.svg" alt="" />
+          </button>
+        </div>
+        <div
+          class="aspect-[3.8/3.5] bg-blue/10 rounded-[2em] flex flex-col items-center justify-between p-[1em] laptop:p-[2em]"
+        >
+          <div class="flex flex-col items-center gap-[.5em] laptop:gap-[2em]">
+            <div class="w-[8em]">
+              <img src="assets/icon1.svg" alt="icon" />
+            </div>
+            <h3 class="text-[3em] font-poppins font-bold">Trade Desk</h3>
+            <p class="text-center text-[1.4em]">
+              Invest in crypto anytime, anywhere with our safe, secure, and easy
+              to use online platform
+            </p>
+          </div>
+          <button class="flex items-center gap-2 py-[2em]">
+            <span class="font-inter font-bold text-[1.6em] text-blue"
+              >Get Started</span
+            >
+            <img class="w-[2em]" src="assets/arrow.svg" alt="" />
+          </button>
+        </div>
+        <div
+          class="aspect-[3.8/3.5] bg-blue/10 rounded-[2em] flex flex-col items-center justify-between p-[1em] laptop:p-[2em] hidden tablet:flex"
+        >
+          <div class="flex flex-col items-center gap-[.5em] laptop:gap-[2em]">
+            <div class="w-[8em]">
+              <img src="assets/icon1.svg" alt="icon" />
+            </div>
+            <h3 class="text-[3em] font-poppins font-bold">Trade Desk</h3>
+            <p class="text-center text-[1.4em]">
+              Invest in crypto anytime, anywhere with our safe, secure, and easy
+              to use online platform
+            </p>
+          </div>
+          <button class="flex items-center gap-2 py-[2em]">
+            <span class="font-inter font-bold text-[1.6em] text-blue"
+              >Get Started</span
+            >
+            <img class="w-[2em]" src="assets/arrow.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue py-[10em] -z-20">
+      <div class="container">
+        <div class="flex justify-between mx-[6vw]">
+          <div class="container text-white font-poppins">
+            <div class="flex flex-col items-center">
+              <h2 class="text-[6.0em] font-bold">$100B</h2>
+              <p class="text-[1.6em]">Montly Volume</p>
+            </div>
+          </div>
+          <div class="container text-white font-poppins">
+            <div class="flex flex-col items-center">
+              <h2 class="text-[6.0em] font-bold">50+</h2>
+              <p class="text-[1.6em]">Customers</p>
+            </div>
+          </div>
+          <div class="container text-white font-poppins">
+            <div class="flex flex-col items-center">
+              <h2 class="text-[6.0em] font-bold">2m</h2>
+              <p class="text-[1.6em]">Verified Users</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container overflow-hidden hidden laptop:block">
+      <div class="flex flex-col laptop:flex-row relative mx-[6vw]">
+        <div class="flex flex-col gap-5 py-[10em] max-w-[560px]">
+          <h2 class="font-poppins text-[4.0em] font-bold leading-none">
+            Spend without limits without Bitcoin Virtual Card
+          </h2>
+          <p class="text-[2em] laptop:text-[1.4em]">
+            Discover a whole new world with out Visa enbaled bitcoin soending
+            card. - spend without limits
+          </p>
+          <div class="flex">
+            <button
+              class="text-[14px] bg-blue py-4 w-full max-w-[300px] rounded-lg text-white"
+            >
+              Download Wallet
+            </button>
+          </div>
+        </div>
+
+        <div class="absolute right-[-100px] scale-75 top-[-150px] z-[20]">
+          <img src="assets/iphone.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container z-10 visible laptop:hidden">
+      <div class="flex flex-col laptop:flex-row relative mx-[15vw]">
+        <div class="flex flex-col gap-5 py-[10em]">
+          <div>
+            <h2
+              class="font-poppins text-[4.0em] font-bold leading-none text-center"
+            >
+              Spend without limits without Bitcoin Virtual Card
+            </h2>
+
+            <p class="text-center text-[2em] laptop:text-[1.4em] py-[1em]">
+              Discover a whole new world with out Visa enbaled bitcoin soending
+              card. - spend without limits
+            </p>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="text-[14px] bg-blue py-4 w-full max-w-[300px] rounded-lg text-white"
+            >
+              Download Wallet
+            </button>
+          </div>
+        </div>
+        <div class="py-[15em]"></div>
+        <div
+          class="absolute right-0 scale-75 top-[50em] tablet:top-[30em] -z-10"
+        >
+          <img src="assets/iphone.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue z-[20]">
+      <div class="container py-[5em] text-white">
+        <div class="flex justify-between px-[8vw]">
+          <div class="flex flex-col gap-2">
+            <h4 class="font-poppins text-[3em] laptop:text-[2.4em] pb-3">
+              Lagos
+            </h4>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]"
+              >8a Ayo Tayo street
+            </span>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]">
+              Lagos, Nigeria
+            </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h4 class="font-poppins text-[3em] laptop:text-[2.4em] pb-3">
+              Lagos
+            </h4>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]"
+              >8a Ayo Tayo street
+            </span>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]">
+              Lagos, Nigeria
+            </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h4 class="font-poppins text-[3em] laptop:text-[2.4em] pb-3">
+              Lagos
+            </h4>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]"
+              >8a Ayo Tayo street
+            </span>
+            <span class="font-inter text-[2em] tablet:text-[1.8em]"
+              >Lagos, Nigeria
+            </span>
+          </div>
+        </div>
+        <div class="px-[8vw] py-[5em]">
+          <div
+            class="bg-white/10 p-[2em] flex flex-col tablet:flex-row gap-[2em] tablet:gap-[5em] items-center rounded-lg"
+          >
+            <h3 class="font-poppins text-[3.5em] laptop:text-[2.4em]">
+              Newsletter Sign Up
+            </h3>
+            <div
+              class="w-full tablet:w-auto bg-white grow flex gap-[5em]] justify-between p-2 rounded-lg"
+            >
+              <input
+                class="grow text-black text-[14px] px-2 font-inter"
+                placeholder="Enter your email here..."
+                type="text"
+              />
+              <button
+                class="bg-blue py-2 px-4 font-inter text-[14px] rounded-lg"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="px-[8vw] flex flex-col tablet:flex-row gap-[2em] items-center justify-between"
+        >
+          <img src="assets/logo-white.svg" alt="" />
+          <span class="text-[12px]"
+            >© 2018 samstickkz Media • All Rights Reserved</span
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
