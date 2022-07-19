@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            mobile: "320px",
+            tablet: "640px",
+            // => @media (min-width: 640px) { ... }
+
+            laptop: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            desktop: "1280px",
+            // => @media (min-width: 1280px) { ... }
+          },
+
+          fontFamily: {
+            Montserrat: ["Montserrat"],
+            Inter: ["Inter"],
+            Poppins: ["Poppins"],
+          },
+          fontSize: {
+            xs: ".75rem",
+            sm: ".875rem",
+            tiny: ".875rem",
+            base: "1rem",
+            lg: "1.125rem",
+            xl: "1.25rem",
+            "2xl": "1.5rem",
+            "3xl": "1.875rem",
+            "4xl": "2.25rem",
+            "5xl": "3rem",
+            "6xl": "4rem",
+            "7xl": "5rem",
+          },
+          extend: {
+            colors: {
+              white: "#ffffff",
+              black: "#2D3436",
+              purpledark: "#6C5CE7",
+              purplelight: "#A29BFE",
+              reddark: "#D63031",
+              greenlight: "#Light",
+              yellowdark: "#FDCB6E",
+              yellowlight: "#FFEAA7",
+              graysoft: "#C2C2C2",
+              gray69: "#696969",
+              gray4A: "#4A4A4A",
+              gray33: "#333333",
+              main: "#2DE38E",
+              mainbg: "#E1F5EC",
+              secondary: "#2E3331",
+              blue: "#4368C7",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;800;900&display=swap");
+    </style>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      @layer components {
+        body {
+          @apply bg-purplelight;
+        }
+        .container {
+          @apply max-w-full desktop:max-w-[1440px] mx-auto bg-white px-[15px] desktop:px-[135px];
+        }
+        .gridTwo {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .gridThree {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .btn {
+          @apply px-[1.5rem] py-[1rem] rounded-lg border border-gray33 text-size16 leading-none;
+        }
+        h1 {
+          @apply font-bold  text-center leading-[1.2em] mx-auto;
+        }
+        .box {
+          padding-block: clamp(40px, 5vw, 80px);
+        }
+        .gridSmart {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container shadow z-10">
+      <div class="flex justify-between items-center py-[16px]">
+        <div class="flex items-center gap-[5px] text-black">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8- w-8"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <a
+            class="font-inter font-bold text-[24px] text-black leading-[0px]"
+            href="#"
+            >Grid</a
+          >
+        </div>
+
+        <button
+          class="bg-purpledark text-white px-[16px] py-[8px] rounded-md shadow font-inter font-bold text-[18px]"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+    <div
+      class="container bg-cover bg-bottom bg-[url('assets/mobile-bg.png')] pt-[62px] pb-[14px]"
+    >
+      <h1
+        class="font-inter font-bold text-[64px] font-weight-[900] drop-shadow-lg drop-shadow-white text-black"
+      >
+        Combine
+      </h1>
+      <h2
+        class="font-inter font-bold text-[48px] font-weight-[900] drop-shadow-lg drop-shadow-white text-black text-center"
+      >
+        Cool images
+      </h2>
+      <p
+        class="font-inter font-bold text-[24px] font-weight-[700] drop-shadow-lg drop-shadow-white text-center max-w-[20ch] mx-auto leading-tight py-5"
+      >
+        To create any grid by scaling and resizing
+      </p>
+
+      <div
+        class="w-[64px] h-[64px] bg-white rounded-full mx-auto my-[20px] flex items-center justify-center"
+      >
+        <div class="w-full h-full p-[10px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5  "
+            viewBox="0 0 20 20"
+            fill="#6C5CE7"
+          >
+            <path
+              fillRule="evenodd"
+              d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="container py-[10px]">
+      <h3 class="font-inter font-bold text-[24px] text-black">
+        Delivering good designs
+        <span class="text-purpledark inline-block">since 1954</span>
+      </h3>
+      <p class="font-inter text-[18px] leading-[1.5em] py-[10px]">
+        We’re the first multi-purpose design kit solutions for businesses. We
+        help you bridge gaps between your
+      </p>
+      <div class="grid grid-cols-2 gap-[20px] py-[10px]">
+        <div class="flex flex-col gap-[10px]">
+          <div
+            class="w-[52px] h-[52px] rounded-lg bg-purplelight text-white flex items-center justify-center"
+          >
+            i
+          </div>
+          <h4 class="font-inter font-bold text-[18px] leading-[27px]">
+            Swapcal the icon
+          </h4>
+          <p class="font-inter font-regular text-[14px] leading-[24px]">
+            You can toggle to any icon within Instances and customize outlined
+            stroke to more bolder or lighter
+          </p>
+          <div>
+            <button
+              class="font-inter font-bold text-purpledark text-[14px] px-[16px] py-[16px] leading-[0px] border rounded-lg"
+            >
+              Learn more
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-[10px]">
+          <div
+            class="w-[52px] h-[52px] rounded-lg bg-purplelight text-white flex items-center justify-center"
+          >
+            i
+          </div>
+          <h4 class="font-inter font-bold text-[18px] leading-[27px]">
+            Swapcal the icon
+          </h4>
+          <p class="font-inter font-regular text-[14px] leading-[24px]">
+            You can toggle to any icon within Instances and customize outlined
+            stroke to more bolder or lighter
+          </p>
+          <div>
+            <button
+              class="font-inter font-bold text-purpledark text-[14px] px-[16px] py-[16px] leading-[0px] border rounded-lg"
+            >
+              Learn more
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-[10px]">
+          <div
+            class="w-[52px] h-[52px] rounded-lg bg-purplelight text-white flex items-center justify-center"
+          >
+            i
+          </div>
+          <h4 class="font-inter font-bold text-[18px] leading-[27px]">
+            Swapcal the icon
+          </h4>
+          <p class="font-inter font-regular text-[14px] leading-[24px]">
+            You can toggle to any icon within Instances and customize outlined
+            stroke to more bolder or lighter
+          </p>
+          <div>
+            <button
+              class="font-inter font-bold text-purpledark text-[14px] px-[16px] py-[16px] leading-[0px] border rounded-lg"
+            >
+              Learn more
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-[10px]">
+          <div
+            class="w-[52px] h-[52px] rounded-lg bg-purplelight text-white flex items-center justify-center"
+          >
+            i
+          </div>
+          <h4 class="font-inter font-bold text-[18px] leading-[27px]">
+            Swapcal the icon
+          </h4>
+          <p class="font-inter font-regular text-[14px] leading-[24px]">
+            You can toggle to any icon within Instances and customize outlined
+            stroke to more bolder or lighter
+          </p>
+          <div>
+            <button
+              class="font-inter font-bold text-purpledark text-[14px] px-[16px] py-[16px] leading-[0px] border rounded-lg"
+            >
+              Learn more
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

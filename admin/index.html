@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="3" />
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
       tailwind.config = {
-        theme: {
+        theme: {          
+		screens: {
+            mobile: "320px",
+            tablet: "640px",
+            laptop: "1024px",
+            desktop: "1280px",
+
+          },
+
           fontFamily: { Montserrat: ["Montserrat"] },
           fontSize: {
             size40: [

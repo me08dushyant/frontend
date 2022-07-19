@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            mobile: "320px",
+            tablet: "640px",
+            laptop: "1024px",
+            desktop: "1280px",
+          },
+
+          fontFamily: { Montserrat: ["Montserrat"], Mulish: ["Mulish"] },
+          fontSize: {
+            size40: [
+              "40px",
+              {
+                lineHeight: "38px",
+              },
+            ],
+            size24: ["24px"],
+            size22: ["22px"],
+            size18: ["18px"],
+            size16: ["16px"],
+            size14: ["14px"],
+          },
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              black: "#141516",
+              blue: "#006AFF",
+              ash: "#333333",
+              grayHeader: "#828282",
+              grayBD: "#BDBDBD",
+              grayCC: "#CCCCCC",
+              gray54: "#545454",
+              grayd9: "#D9D9D9",
+              gray69: "#696969",
+              red: "#FF0000",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Mulish:wght@400;500&display=swap");
+    </style>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      @layer components {
+        .container {
+          @apply max-w-full desktop:max-w-[1440px] px-[15px] tablet:px-[30px] laptop:px-[60px] desktop:px-[150px] mx-auto;
+        }
+        .gridTwo {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .gridThree {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .btn {
+          @apply px-[1.5rem] py-[1rem] rounded-lg border border-gray33 text-size16 leading-none;
+        }
+        .btnBlue {
+          @apply w-[165px] bg-blue px-[28px] py-[16px] rounded-full;
+        }
+        .btnGhost {
+          @apply w-[165px] px-[28px] py-[16px] rounded-full border border-white/50;
+        }
+        .btnGhostBlack {
+          @apply w-[165px] px-[28px] py-[16px] rounded-full border border-black;
+        }
+        .head1 {
+        }
+        .head2 {
+          @apply font-Montserrat font-bold  text-[32px] laptop:text-[48px] leading-[1.2em] text-center;
+        }
+        .para2 {
+          @apply font-Montserrat  text-[14px] leading-[1.5em] text-center max-w-[35ch] mx-auto py-[10px];
+        }
+        .logos img {
+          @apply w-auto max-h-[3.5vw] laptop:max-h-[2vw];
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-black">
+      <div class="container py-5">
+        <div
+          class="hidden laptop:flex justify-between text-white font-Mulish text-[16px] pb-[20px]"
+        >
+          <div class="flex gap-[3.33vw] items-center leading-none">
+            <div><img src="assets/logo.svg" alt="" /></div>
+            <a href="#">Exemplets</a>
+            <a href="#">Pricing</a>
+            <a href="#">About</a>
+          </div>
+          <div class="flex gap-[2.33vw] items-center leading-none">
+            <button class="btnGhost">Login</button>
+            <button class="btnBlue">Start Free Trail</button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between laptop:hidden">
+          <div><img src="assets/logo.svg" alt="" /></div>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="hero text-white grid grid-cols-1 laptop:grid-cols-2 items-end py-10"
+        >
+          <div class="order-2 laptop:order-1">
+            <div>
+              <h1
+                class="font-Montserrat font-bold leading-tight pt-[40px] text-[40px] laptop:text-[48px] text-center laptop:text-left"
+              >
+                Reach more<br />
+                people in real time
+              </h1>
+              <p
+                class="font-Mulish text-[14px] laptop:text-[16px] text-center laptop:text-left mx-auto laptop:mx-0 font-weight-[400] max-w-[46ch] py-[20px]"
+              >
+                The Screeno ecosystem is designed to help you generate profit.
+                Set up complete sales and marketing funnels with ease using the
+                Screeno
+              </p>
+              <div
+                class="flex gap-[2.33vw] items-center justify-center laptop:justify-start font-Mulish text-[16px] leading-none py-[30px]"
+              >
+                <button class="btnBlue">Start Free Trail</button>
+                <button class="btnGhost">Login</button>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 laptop:order-2 flex items-center justify-center">
+            <img src="assets/frame3.png" alt="" />
+          </div>
+        </div>
+        <div
+          class="logos pt-[40px] laptop:pt-[80px] pb-[20px] laptop:[40px] flex flex-wrap gap-x-[2rem] laptop: gap-x-[4rem] gap-y-[1rem] justify-center laptop:justify-between"
+        >
+          <img src="assets/logo1.svg" alt="" />
+          <img src="assets/logo2.svg" alt="" />
+          <img src="assets/logo3.svg" alt="" />
+          <img src="assets/logo4.svg" alt="" />
+          <img src="assets/logo5.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="container py-20 laptop:py-20">
+      <div>
+        <h2 class="head2">All-in-one platform</h2>
+        <p class="para2">
+          You take care of the video quality and we take care of everything else
+        </p>
+        <div
+          class="flex items-center font-Mulish text-[16px] leading-none pt-[30px] justify-center gap-[2.33vw]"
+        >
+          <button class="btnBlue text-white">Start Free Trail</button>
+          <button class="btnGhostBlack">Login</button>
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-x-[5vw] gap-y-[40px] px-[3vw] tablet:px-[7vw] pt-[50px]"
+      >
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex gap-2 items-center pb-[20px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+              />
+            </svg>
+            <h4 class="font-Montserrat font-bold text-18px">
+              Upload & Organize
+            </h4>
+          </div>
+          <p class="font-Mulish text-[14px] laptop:text-[16px]">
+            Upload in bulk, organize content in categories, add custom filters &
+            upload extras.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-black">
+      <div class="container py-20">
+        <h2 class="head2 text-white">Start your own business today</h2>
+        <p class="para2 text-white">
+          Consistent quality and experience across all platforms and devices.
+        </p>
+        <div
+          class="flex gap-[2.33vw] items-center justify-center font-Mulish text-[16px] leading-none py-[30px]"
+        >
+          <button class="btnBlue bg-white">Start Free Trail</button>
+          <button class="btnGhost text-white">Login</button>
+        </div>
+        <div
+          class="flex items-center justify-center pt-10 px-10 tablet:px-[10vw]"
+        >
+          <img src="assets/frame4.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-20 overflow-hidden">
+      <h2 class="head2">Famous live on our platform</h2>
+      <p class="para2">At the end of the day have fun with celebrities</p>
+      <div class="py-10">
+        <div class="flex gap-5 ml-[-150px]">
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img1.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img2.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img3.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img4.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img5.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img6.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img7.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img9.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img1.png"
+            alt=""
+          />
+        </div>
+        <div class="flex gap-5 ml-[-650px] pt-5">
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img9.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img8.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img9.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img7.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img6.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img1.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img1.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img2.png"
+            alt=""
+          />
+          <img
+            class="w-40 aspect-video laptop:w-auto h-auto"
+            src="assets/img1.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="bg-[#E5E5E5]">
+      <div class="container py-10">
+        <div
+          class="flex flex-wrap px-[5vw] gap-x-[10vw] laptop:gap-x-20 gap-y-[5vw] laptop:justify-center"
+        >
+          <div class="w-[35vw] laptop:w-[10vw] flex flex-col gap-3">
+            <div class="first:pb-[10px]">
+              <img src="assets/logo.svg" alt="" />
+            </div>
+            <p>Streaming and Video platform</p>
+            <div>logo</div>
+          </div>
+          <div class="w-[35vw] laptop:w-[10vw] flex flex-col gap-3">
+            <h4
+              class="first:pb-[10px] font-Montserrat font-semibold text-[18px] leading-none"
+            >
+              Contact Info
+            </h4>
+
+            <div class="font-Mulish text-[14px]">
+              2715 Ash Dr. San Jose, South Dakota 83475
+            </div>
+            <div class="font-Mulish text-[14px]">(219) 555-0114</div>
+            <div class="font-Mulish text-[14px]">info@screeno.com</div>
+          </div>
+          <div class="w-[80vw] laptop:w-[20vw] flex flex-col gap-3">
+            <h4
+              class="first:pb-[10px] font-Montserrat font-semibold text-[18px] leading-none"
+            >
+              Get in touch
+            </h4>
+            <input class="p-2 rounded-lg border-gray" type="text" />
+            <input class="p-2 rounded-lg border-gray" type="text" />
+            <input class="p-2 rounded-lg border-gray" type="textarea" />
+            <div>
+              <button class="btnBlue text-white w-auto py-2 mt-3">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-black/20">
+        <div class="py-3 font-mulish text-[14px] text-center">
+          ©2022 Screeno Ltd, All rights reserved
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
