@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vite App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Passion+One&family=Rammetto+One&family=Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+
+
+        screens: {
+          'mobile': '420px',
+          'tablet': '820px',
+          // => @media (min-width: 640px) { ... }
+
+          'laptop': '1024px',
+          // => @media (min-width: 1024px) { ... }
+
+          'desktop': '1280px',
+          // => @media (min-width: 1280px) { ... }
+        },
+        fontSize: {
+          xs: '0.6rem',
+          sm: '0.8rem',
+          base: '1rem',
+          xl: '1.25rem',
+          "2xl": '1.563rem',
+          "3xl": '1.953rem',
+          "4xl": '2.441rem',
+          "5xl": '3.052rem',
+          "6xl": '4.052rem',
+        },
+        fontFamily: {
+          nav: ['Lato'],
+          title: ['Poppins'],
+          para: ['Lato']
+
+        },
+
+        extend: {
+          colors: {
+            wwhite: '#ffffff',
+            PrimaryColor: 'var(--primary-color)',
+            highlight: "#ff7425",
+
+          },
+
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+
+
+    :root { --primary-color: white;   --uiOffset:4vw; }
+      @layer utilities {
+        body{@apply bg-slate-800 overflow-x-hidden}   
+      
+        .con{@apply max-w-[1250px] mx-auto px-[5vw] laptop:px-[2vw] }
+        .sample{@apply text-white flex justify-center items-center}
+      
+        .btn{@apply px-8 py-5 bg-white text-slate-900 font-nav uppercase leading-none text-base }
+        .btnBorder{@apply px-8 py-5 border border-white text-white font-nav uppercase leading-none  text-base  }
+
+
+        .mainWrapper{@apply relative w-[100vw]}               
+        .mainBG{@apply fixed  w-full grid grid-cols-5 -z-10}
+        .mainBG >div{@apply   border-l border-l-slate-700/50 first:border-none h-[100vh] }     
+        .mainCon{@apply text-white z-[10] }
+
+
+        .about{@apply  grid grid-cols-2}
+        .about >div{@apply sample h-[30vh]}
+
+        h6{@apply text-highlight font-nav text-base}      
+        h2{@apply font-title font-bold text-4xl pt-4}
+
+
+        .textScroll{@apply mt-12 relative overflow-hidden z-10} 
+        .textScroll .grad{@apply  absolute left-0 top-0  w-screen h-full flex justify-between z-10} 
+        .textScroll .grad > div{@apply bg-slate-900/0 w-[20vw] first:bg-gradient-to-r first:-translate-x-[42%]  last:bg-gradient-to-l last:translate-x-[42%]  from-slate-900 via-slate-900  }
+        .textScroll .tray{@apply flex w-[300vw]}
+        .textScroll ul {@apply flex justify-around text-[6vw] font-bold  w-[150vw] }
+        .textScroll li{@apply even:textOutline even:text-slate-900 }
+        .textOutline{ -webkit-text-stroke: 1px white; @apply text-slate-900}
+       
+        .showcase .swiper1 {@apply w-screen h-auto overflow-hidden }
+        .showcase .title{@apply font-bold pt-5 text-center }
+        .showcase .tag{@apply  text-center}   
+        
+        .testimonial{@apply overflow-hidden}
+        .testimonial .swiper2{@apply w-auto h-auto}
+        .reveal {@apply relative overflow-hidden w-full h-full        }
+        .reveal img {@apply absolute left-0 top-0 w-full h-full object-cover        }        
+        
+      }     
+      
+      
+
+
+     
+
+ 
+    </style>
+</head>
+
+<body>
+  <div class="mainWrapper">
+    <div class="mainBG ">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="mainCon">
+
+      <header class="bg-slate-900 fixed w-screen z-[1000]">
+        <div class="con hidden tablet:flex   py-5  justify-between items-center leading-none ">
+          <div class="font-title text-3xl font-bold scrollNav" data="#home">Archo</div>
+          <nav class="flex gap-7">
+            <ul class="flex gap-7">
+              <li class="scrollNav" data="#home">Home</li>
+              <li class="scrollNav" data="#serve">Services</li>
+              <li class="scrollNav" data="#about">About Us</li>
+              <li class="scrollNav" data="#projects">Projects</li>
+              <li class="scrollNav" data="#clients">Clients</li>
+            </ul>
+            <div class="border-l"></div>
+            <ul class="flex gap-3  ">
+              <li><i class="bi bi-meta"></i></li>
+              <li><i class="bi bi-twitter"></i></li>
+              <li><i class="bi bi-dribbble"></i></li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          class="absolute  con tablet:hidden flex py-5 w-screen justify-between items-center leading-none z-10 bg-slate-900/50">
+          <div class="font-title text-3xl font-bold scrollNav" data="#home">Archo</div>
+          <div class="mobileBtn"><i class="bi bi-list text-3xl"></i></div>
+        </div>
+
+        <div
+          class="mobileNav absolute hidden  con w-screen h-screen bg-slate-800  z-20 flex justify-center items-center text-xl text-center">
+          <div>
+            <ul class="flex flex-col gap-5">
+              <li class="scrollNav" data="#home">Home</li>
+              <li class="scrollNav" data="#serve">Services</li>
+              <li class="scrollNav" data="#about">About Us</li>
+              <li class="scrollNav" data="#projects">Projects</li>
+              <li class="scrollNav" data="#clients">Clients</li>
+            </ul>
+            <ul class="flex gap-5  pt-5">
+              <li><i class="bi bi-meta"></i></li>
+              <li><i class="bi bi-twitter"></i></li>
+              <li><i class="bi bi-dribbble"></i></li>
+            </ul>
+          </div>
+          <div class=" close absolute top-3 right-0 pr-[5vw]"><i class="bi bi-x text-3xl"></i></div>
+        </div>
+      </header>
+
+      <div class="hidden fixed z-[1000] right-0 bottom-0">
+        <div>
+          <svg id="svgCircleProgress1" class="svgloader" height="100" width="100">
+            <circle id="svgCircleProgressPath1" cx="50" cy="50" r="20" stroke="#ffffff" stroke-width="2"
+              fill="transparent" transform="rotate(-90, 50, 50)">
+            </circle>
+          </svg>
+        </div>
+
+      </div>
+
+
+      <!-- Hero Secion-->
+
+      <section id="home" class="relative py-24  w-[100vw] bg-slate-700 overflow-hidden z-[10]  ">
+        <div class="hidden tablet:block tablet:absolute top-0 left-0 w-screen h-auto  opacity-[75%]  -z-[1]">
+          <img src="/archo/3.jpg" alt="">
+        </div>
+        <div class="con z-[5]">
+          <div class=" h-[80vh] flex items-center">
+            <div class="-mt-20">
+              <h6 class="font-nav text-base">We are a creative studio.</h6>
+              <h1 class="font-title font-bold text-5xl uppercase max-w-[20ch] pt-4 ">Better design for your digital
+                products.</h1>
+              <div class="flex gap-5 pt-6"><button class="btn">About Us.</button>
+                <button class="btnBorder">See Works.</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Services Starts-->
+
+      <section id="serve" class="py-24">
+
+        <div class="con ">
+          <div>
+            <div class="grid tablet:flex justify-between items-center">
+              <div>
+                <h6 class="text-highlight font-nav text-base">1 // SERVICES</h6>
+                <h2>Best Services.</h2>
+              </div>
+              <div>
+                <div class="flex ">
+                  <div
+                    class="relative py-4 px-8 flex uppercase font-nav text-base font-light group transition-all duration-300">
+                    <p>See All Services</p>
+                    <div
+                      class="absolute  right-0 top-0 p-7  h-full rounded-full w-[0] border border-slate-500 transition-all duration-700 ease-in-out  group-hover:w-full group-hover:border-slate-100">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 desktop:grid-cols-4 gap-10 justify-between items-cente pt-24">
+              <div>
+                <i class="text-5xl bi bi-bell"></i>
+                <h3 class="font-nav font-bold text-2xl pt-8">Marketing Strategy</h3>
+                <p class="font-para text-base pt-4 font-light text-slate-300">Praesent faucibus nisl sit amet nulla
+                  pretium a sed purus.
+                </p>
+              </div>
+
+              <div>
+                <i class="text-5xl bi bi-box"></i>
+                <h3 class="font-nav font-bold text-2xl pt-8">Marketing Strategy</h3>
+                <p class="font-para text-base pt-4 font-light  text-slate-300">Praesent faucibus nisl sit amet nulla
+                  pretium a sed purus.
+                </p>
+              </div>
+
+              <div>
+                <i class="text-5xl bi bi-window-stack"></i>
+                <h3 class="font-nav font-bold text-2xl pt-8">Marketing Strategy</h3>
+                <p class="font-para text-base pt-4 font-light  text-slate-300">Praesent faucibus nisl sit amet nulla
+                  pretium a sed purus.
+                </p>
+              </div>
+
+              <div>
+                <i class="text-5xl bi bi-cart"></i>
+                <h3 class="font-nav font-bold  text-2xl pt-8">Marketing Strategy</h3>
+                <p class="font-para font-light text-base pt-4  font-light  text-slate-300">Praesent faucibus nisl sit
+                  amet
+                  nulla pretium a
+                  sed
+                  purus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Ends-->
+
+      <!-- Who we are Starts-->
+
+      <section id="about" class="py-24 bg-slate-900">
+        <div class="con">
+          <div class="grid  tablet:grid-cols-2 gap-10 tablet:gap-0">
+            <div class="relative  relative">
+              <div class="aspect-square overflow-hidden">
+                <div class="reveal">
+                  <img src="/archo/1.jpg" alt="">
+                </div>
+                <div class="hidden circleAnim laptop:block absolute w-40  top-0 right-0 translate-x-[50%]">
+                  <svg class="fill-white text-3xl font-nav" viewBox="0 0 500 500">
+                    <defs>
+                      <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z">
+                      </path>
+                    </defs>
+                    <text>
+                      <textPath xlink:href="#textcircle" textLength="900">About Us - About Us
+                        -
+                        About Us -</textPath>
+                    </text>
+                  </svg>
+                  <div
+                    class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-1 bg-white rounded-full ">
+                  </div>
+                  <div
+                    class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-[25%] bg-white/10 rounded-full ">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <div class="max-w-[70%]">
+                <h6>WHO WE ARE?</h6>
+                <h2>We Help to Succeed in the Digital World.</h2>
+                <p class="font-para font-light text-base pt-4  font-light  text-slate-300">Product design is the reason
+                  why our partners first consult us, and we often enrich the project by
+                  exploring ux/ui</p>
+                <div class="flex items-center gap-5 pt-4">
+                  <p class="font-title font-bold text-6xl">28</p>
+                  <p>Years <br />of experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="textScroll ">
+          <div class="grad">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="tray">
+            <ul>
+              <li>Likedin</li>
+              <li>Dribbble</li>
+              <li>Instagram</li>
+              <li>Facebook</li>
+            </ul>
+            <ul>
+              <li>Likedin</li>
+              <li>Dribbble</li>
+              <li>Instagram</li>
+              <li>Facebook</li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+      <!-- Who we are Ends-->
+
+      <!-- ShowCase Starts-->
+      <section id="projects" class="py-24">
+        <div class="con">
+          <div class="flex justify-between items-center">
+            <div>
+              <h6 class="text-highlight font-nav text-base">2 // Showcase</h6>
+              <h2>Selected Projects.</h2>
+            </div>
+            <div class="uppercase font-nav text-base font-light flex gap-2">
+              <div class="showcase-prev w-12 h-12 border border-white flex justify-center items-center"><i
+                  class="bi bi-chevron-left"></i></div>
+              <div class="showcase-next w-12 h-12 border border-white flex justify-center items-center"><i
+                  class="bi bi-chevron-right"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="showcase pt-24">
+          <div class="swiper-container swiper1">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="aspect-square">
+                  <div class="reveal">
+                    <img src="/archo/gallery/1.jpg" alt="">
+                  </div>
+                </div>
+                <h3 class="title">This is Random</h3>
+                <p class="tag">Branding</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="aspect-square ">
+                  <div class="reveal">
+                    <img src="/archo/gallery/2.jpg" alt="">
+                  </div>
+                </div>
+                <h3 class="title">This is Random</h3>
+                <p class="tag">Branding</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="aspect-square ">
+                  <div class="reveal">
+                    <img src="/archo/gallery/3.jpg" alt="">
+                  </div>
+                </div>
+                <h3 class="title">This is Random</h3>
+                <p class="tag">Branding</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="aspect-square ">
+                  <div class="reveal">
+                    <img src="/archo/gallery/4.jpg" alt="">
+                  </div>
+                </div>
+                <h3 class="title">This is Random</h3>
+                <p class="tag">Branding</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="flex justify-center pt-20 ">
+          <div
+            class="relative py-4 px-8 flex uppercase font-nav text-base font-light group transition-all duration-300">
+            <p>See All Projects</p>
+            <div
+              class="absolute  right-0 top-0 p-7  h-full rounded-full w-[0] border border-slate-500 transition-all duration-700 ease-in-out  group-hover:w-full group-hover:border-slate-100">
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Showcase Ends-->
+
+      <!-- video Starts-->
+      <section class=" bg-fixed bg-slate-900 bg-[url('/archo/2.jpg')] bg-center bg-cover">
+        <div class="py-56 flex  bg-slate-900/50">
+          <div class="w-48 h-48 rounded-full border  mx-auto flex items-center justify-center">
+            <i class="bi bi-play-fill text-[6em] leading-none translate-x-[5%]"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- video Ends-->
+
+      <!-- Cleint Starts-->
+      <section id="clients" class="py-24 bg-slate-900">
+        <div class="con">
+          <div class="grid tablet:grid-cols-2">
+            <div>
+              <h6 class="text-highlight font-nav text-base">3 // Our Clients</h6>
+              <h2 class="max-w-[20ch]  w-[90%] pb-6">Some <span class="textOutline"> friends</span> we have made
+                while <span class="textOutline"> working
+                </span> together.
+              </h2>
+            </div>
+            <div>
+              <p class="pb-8 leading-[2.2em] text-slate-300">Our clients describe us as a product team which
+                creates
+                amazing UI/UX
+                experiences, by
+                crafting
+                top-notch user experience.</p>
+              <div class=" flex justify-between pt-12 border-t border-t-slate-700">
+                <img class="w-24" src="/archo/01.png" alt="">
+                <img class="w-24" src="/archo/02.png" alt="">
+                <img class="w-24" src="/archo/03.png" alt="">
+              </div>
+              <div class=" flex justify-between pt-12">
+                <img class="w-24" src="/archo/04.png" alt="">
+                <img class="w-24" src="/archo/05.png" alt="">
+                <img class="w-24" src="/archo/02.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cleint Ends-->
+
+      <!-- Testimonial Starts-->
+      <section class="py-24">
+        <div class="con">
+          <div class="grid tablet:flex gap-20 mx-10">
+            <div>
+              <div
+                class="h-48 w-48 mx-auto border border-slate-500 rounded-full flex justify-center items-center text-6xl font-title">
+                <div class="rotate-180 scale-75"><svg xmlns="http://www.w3.org/2000/svg" width="82" height="79"
+                    viewBox="0 0 82 79" fill="none">
+                    <path d="M20.6258 36.5H1V1H36.7301V37.3128L20.9472 78H5.98811L21.5581 37.8617L22.0863 36.5H20.6258Z"
+                      stroke="#fff" stroke-width="1"></path>
+                    <path d="M64.8957 36.5H45.2699V1H81V37.3128L65.2172 78H50.2581L65.828 37.8617L66.3562 36.5H64.8957Z"
+                      stroke="#fff" stroke-width="1"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="testimonial">
+              <div class="swiper2">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <p class="max-w-[65ch] font-para text-xl leading-[2em]"> “Creative SEO & Digital Marketing Solutions
+                      for
+                      your Business
+                      ghost flathead chain pickerel torpedo neon tetra soldierfish Ling brook lamprey slimy sculpin
+                      velvetfish
+                      Devario Colorado squaw zebra turkeyfish!” </p>
+                    <p class="pt-6 flex gap-5 items-center"><span class="font-bold text-lg">Alex
+                        Morgan</span><span>-</span><span class="text-slate-300 text-sm">
+                        Developer</span>
+                    </p>
+                  </div>
+                  <div class="swiper-slide">
+                    <p class="max-w-[65ch] font-para text-xl leading-[2em]"> “Creative SEO & Digital Marketing Solutions
+                      for
+                      your Business
+                      ghost flathead chain pickerel torpedo neon tetra soldierfish Ling brook lamprey slimy sculpin
+                      velvetfish
+                      Devario Colorado squaw zebra turkeyfish!” </p>
+                    <p class="pt-6 flex gap-5 items-center"><span class="font-bold text-lg">Alex
+                        Morgan</span><span>-</span><span class="text-slate-300 text-sm">
+                        Developer</span>
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Testimonial Ends-->
+
+
+      <footer class=" bg-slate-900">
+        <section class="py-12 ">
+          <div class="con">
+            <div class="grid tablet:grid-cols-2 laptop:flex  gap-10 justify-between ">
+              <div class="font-title font-bold text-4xl leading-none">Archo</div>
+              <nav>
+                <h4 class="font-title font-bold text-xl">About US</h4>
+                <ul class="pt-8 flex flex-col gap-2">
+                  <li>Company</li>
+                  <li>Team</li>
+                  <li>Services</li>
+                  <li>Products</li>
+                </ul>
+              </nav>
+              <nav>
+                <h4 class="font-title font-bold text-xl">Office</h4>
+                <ul class="pt-8 flex flex-col gap-2">
+                  <li class="max-w-[30ch]">Germany — 785 15h Street, Office 478 Berlin, De 81566</li>
+                  <li>Info-Support@Gmail.com</li>
+                  <li class="font-bold">+1 840 841 25 69</li>
+                </ul>
+              </nav>
+              <nav>
+                <h4 class="font-title font-bold text-xl">Recent Posts</h4>
+                <ul class="pt-8 flex flex-col gap-5">
+                  <li class="flex  gap-5 items-center">
+                    <div class="">
+                      <img class="aspect-[3/2] w-24 object-cover" src="/archo/gallery/1.jpg" alt="">
+                    </div>
+                    <p class="max-w-[25ch]">How to check the website before releasing it?</p>
+                  </li>
+                  <li class="flex  gap-5 items-center">
+                    <img class="aspect-[3/2] w-24 object-cover" src="/archo/gallery/4.jpg" alt="">
+                    <p class="max-w-[25ch]">How to check the website before releasing it?</p>
+                  </li>
+
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="py-12 border-t border-t-slate-700">
+          <div class="con  px-10 ">
+            <nav class="grid gap-6 tablet:flex justify-between font-nav text-sm  ">
+              <ul class="flex gap-10  ">
+                <li>
+                  Privacy policy
+                </li>
+                <li>
+                  Legal Notice
+                </li>
+                <li>
+                  Terms of service
+                </li>
+
+              </ul>
+              <p class="text-slate-300">© 2022 Archo powered by tailwindCss</p>
+            </nav>
+          </div>
+        </section>
+
+
+      </footer>
+
+    </div>
+  </div>
+
+
+
+  <script type="module" src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollToPlugin.min.js"></script>
+</body>
+
+</html>
